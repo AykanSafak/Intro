@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using Intro.DataAccess.Concretes;
 using Intro.Entities;
 
 Console.WriteLine("Hello, World!");
@@ -35,12 +36,12 @@ for (int i = 0; i < leans.Length; i++)
 
 // course[] courses = { course1, course2, course3 };
 
-CourseManager courseManager = new CourseManager();
+CourseManager courseManager = new(new DapperCourseDal());
 
-List<Course> courses2 = courseManager.GetAll();
-for (int i = 0; i < courses2.Length; i++)
+List<course> courses2 = courseManager.GetAll();
+for (int i = 0; i < courses2.Count; i++)
 {
-    Console.WriteLine(courses[i].Name + "/" + courses[i].Price);
+    Console.WriteLine(courses2[i].Name + "/" + courses2[i].Price);
 }
 
 
